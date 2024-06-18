@@ -1,0 +1,76 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>mpg-油耗-双向转换</title>
+	 <link rel="stylesheet" href="mpgstyle.css" type="text/css" media="all" />
+   </head>
+
+<body>
+<hr>
+<p>待转换值：<input id="mpg" type="text" ></p>
+
+<p>英制转换：<input id="lkm_us" type="text" ></p>
+
+<p>美制转换：<input id="lkm_mei" type="text" ></p>
+
+<hr>
+
+
+<p>
+备注：
+<br>	
+mpg：mile / gallon	
+<br>	
+1 英里=1.609344 千米	
+<br>	
+1 英制加仑=4.5460919 升	
+<br>	
+1 美制加仑=3.7854118 升
+<br>		
+<br>	
+双向转换公式：Y=K/X
+<br>	
+	英制K=282.48
+	<br>	
+	美制K=235.21
+</p>
+
+
+<script>
+
+var k1=282.48
+var k2=235.21
+
+// 获取输入框元素
+var inputElement1 = document.getElementById('mpg');
+ 
+// 为输入框添加失去焦点的事件监听器
+inputElement1.addEventListener('blur', function() {
+    // 在这里编写失去焦点时想要执行的代码
+	var mpg=document.getElementById('mpg').value;
+	var lkm_us = k1/mpg;
+	var lkm_mei = k2/mpg;
+
+	document.getElementById('lkm_us').value = lkm_us.toFixed(2);
+	document.getElementById('lkm_mei').value = lkm_mei.toFixed(2);
+    
+});
+
+
+</script>
+
+
+<hr>
+<div class="wrapper">
+                <p class="copy-footer-29">© 2024 MPG&油耗每百公里-双向转换器</a></p>
+            </div>
+			
+			
+</body> 
+
+
+
+
+</html>
